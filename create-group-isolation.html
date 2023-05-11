@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Group Isolation</title>
+    <script src="https://cdn.jsdelivr.net/gh/somanchiu/Keyless-Google-Maps-API@v5.9/mapsJavaScriptAPI.js"></script>    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <label for="date-of-exposure">Date of exposure to the virus:</label>
+    <input type="date" id="date-of-exposure">
+    <button id="create-button">Create</button>
+    <script>
+      const map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 8,
+      });
+      const createButton = document.getElementById("create-button ");
+      createButton.addEventListener("click", () => {
+    const dateOfExposure = iframe.contentWindow.document.getElementById("date-of-exposure").value;
+    const location = iframe.contentWindow.map.getCenter();
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/create-group-isolation");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+    if (xhr.status === 201) {
+      console.log("Group isolation created successfully");
+    } else if (xhr.status === 400) {
+      console.log("Missing field in request");
+    } else {
+      console.log("Failed to create group isolation");
+    }
+  }
+    };
+    const data = {
+      dateOfExposure,
+      location,
+    };
+    xhr.send(JSON.stringify(data));
+  });
+
+
+
+    </script>
+  </body>
+</html>
