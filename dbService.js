@@ -107,11 +107,11 @@ class DbService {
     }
     async insertNewVaccine( vaccine_number_for_member , vaccine_manufacturer, member_id, vaccination_day_date, Getting_positive_result_date, recovery_date) {
         try {
-                        console.log("  `INSERT INTO vaccine  VALUES (DEFAULT,'${vaccine_number_for_member}' ,'${ vaccine_manufacturer}', '${member_id}', '${vaccination_day_date}', '${Getting_positive_result_date}', '${recovery_date}')`");
+ // console.log(  `INSERT INTO vaccine  VALUES (DEFAULT,${vaccine_number_for_member} ,'${ vaccine_manufacturer}',  ${member_id} , '${vaccination_day_date}', '${Getting_positive_result_date}', '${recovery_date}')`);
 
             const response = await new Promise((resolve, reject) => {
             
-                const query =  `INSERT INTO vaccine  VALUES (DEFAULT,'${vaccine_number_for_member}' ,'${ vaccine_manufacturer}', '${member_id}', '${vaccination_day_date}', '${Getting_positive_result_date}', '${recovery_date}')`;
+                const query =  `INSERT INTO vaccine  VALUES (DEFAULT,${vaccine_number_for_member} ,'${ vaccine_manufacturer}',  ${member_id} , '${vaccination_day_date}', '${Getting_positive_result_date}', '${recovery_date}')`;
 
  
         
