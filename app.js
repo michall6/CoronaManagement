@@ -35,7 +35,7 @@ app.post('/insert', (req, response) => {
 app.post('/insertVaccine', (req, response) => {
   const  request  = req.body;
   const db = dbService.getDbServiceInstance();
-    const result = db.insertNew( request.vaccine_number_for_member , request.vaccine_manufacturer, request.vaccination_day_date, request.city, request.Getting_positive_result_date , request.recovery_date);
+    const result = db.insertNewVaccine( request.vaccine_number_for_member , request.vaccine_manufacturer, request.member_id, request.vaccination_day_date, request.Getting_positive_result_date, request.recovery_date);
 
     result
     .then(data => response.json({ data: data}))
