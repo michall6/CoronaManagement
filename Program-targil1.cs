@@ -26,11 +26,7 @@ class Program
     //    return count;
     //}
 
-    //    int totalCount = max - min + 1;
-    //    int evenCount = totalCount / 2;
-    //    int oddCount = totalCount - evenCount;
-    //    return oddCount;
-    //}
+   
 
     private static void PrintLine(int num_spaces, int num_stars)
     {
